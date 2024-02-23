@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 02 - Imagens</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #btn1{
+            align-self: flex-start;
+        }
+        #btn2{
+            align-self: flex-start;
+        }
+        button {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+        }
+        button > img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Escolha os botões para testar abrir ou fechar a porta</h1>
+    <img src="imagens/portaFechada.png" alt="porta" id="Imagemporta">
+    <button id="btn1" onclick="document.getElementById('Imagemporta').src=('imagens/portaAberta.png')"> 
+        Abrir porta
+        <img src="imagens/cadeadoAberto.png" alt="cadeado">
+    </button>
+    <button id="btn2" onclick="document.getElementById('Imagemporta').src=('imagens/portaFechada.png')"> 
+        fechar porta
+        <img src="imagens/cadeadoFechado.png" alt="cadeado">
+    </button>
+</body>
+</html>
