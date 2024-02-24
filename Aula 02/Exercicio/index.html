@@ -10,19 +10,27 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: row;
+        }
+
+        div.btns{
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-direction: column;
         }
-        button{
+       div.btns >  button{
             width: 50px;
+            height: 50px;
             border-radius: 10px;
             border: 2px dashed black;
             background-color: transparent;
         }
-        button:hover{
+        div.btns > button:hover{
             background-color: pink;
             border: 2px solid black;
         }
-        button:hover > img{
+        div.btns > button:hover > img{
                 filter: invert();
 
         }
@@ -32,9 +40,8 @@
         }
 
         div.sprite{
-            width: 300px;
-            height: 300px;
-            background-color: white;
+            width: 200px;
+            height: 200px;
             border: 2px solid black;
         }
         div.sprite > img{
@@ -44,12 +51,30 @@
         div.btns{
             margin-top: 10px;
         }
+        div.btn-powers{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 200px;
+
+        }
+
+        div.btn-powers > button{
+            width: 60px;
+            height: 60px;
+            background-color: transparent;
+            border: none;
+        }
+
+        div.btn-powers > button:hover{
+            padding-left: 10px;
+            transition: 0.4s;
+        }
     </style>
 </head>
 <body>
-    <div class="sprite">
-        <img src="" alt="Sprite" id="Sprite">
-    </div>
+    
 
     <div class="btns">
         <button onclick="document.getElementById('Sprite').src = ('Sprites/KirbyATAK.gif')">
@@ -65,6 +90,26 @@
             <img src="Botoes/btnDown.png" alt="ataque">
         </button>
     </div>
+
+    <div class="sprite">
+        <img src="" alt="Sprite" id="Sprite">
+    </div>
+
+    <div class="btn-powers">
+        <button onclick="document.getElementById('Sprite').src = ('Powers/fighter.png')">
+            <img src="Powers/iconfighter.png" alt="habilidade">
+        </button>
+        <button onclick="document.getElementById('Sprite').src = ('Powers/fire.png')">
+            <img src="Powers/iconfire.png" alt="habilidade">
+        </button>
+        <button onclick="document.getElementById('Sprite').src = ('Powers/ice.png')">
+            <img src="Powers/iconice.png" alt="habilidade">
+        </button>
+        <button onclick="document.getElementById('Sprite').src = ('Powers/sword.png')">
+            <img src="Powers/iconsword.png" alt="habilidade">
+        </button>
+    </div>
+
     
 </body>
 </html>
