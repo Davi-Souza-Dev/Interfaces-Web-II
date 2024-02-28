@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .pokedex{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%);
+            height: 600px;
+            width: 300px;
+            position: absolute;
+        }
+        .pokedex-fundo{
+            width: 100%;
+        }
+        .pokedex-visor{
+            width: 190px;
+            height: 139px;
+            position: absolute;
+            top: 115px;
+            left: 40px;
+            border-radius: 20px;
+        }
+        .pokedex-visor > img{
+            width: 100%;
+            position: relative;
+            top: -20px;
+        }
+        div.container-btn{
+            width: 70%;
+            height: 40px;
+            border: 2px solid black;
+            position: relative;
+            top: -120px;
+            left: 30px;
+
+        }
+
+        /*Desenho do botão - pokebola*/
+        button{
+            background-color: transparent;
+            border: none;
+            height: 100%;
+        }
+        .base{
+            background-color: rgb(255, 255, 255);
+            height: 30px;
+            width: 30px;
+            border: 2px black solid;
+            border-radius: 50%;
+            position: relative;
+        }
+        .topo{
+            background-color: red;
+            width: 100%;
+            height: 50%;
+            border-radius: 200px 200px 0px 0px;
+        }
+        .meio{
+            background-color: black;
+            width: 100%;
+            height: 4px;
+        }
+        .bola{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: white;
+            border: 1px solid black;
+            position:absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-35%);
+        }
+        .menor{
+            width: 5px;
+            height: 5px;
+            transform: translate(-50%,-50%);
+        }
+
+        /*Mudança de cor topo da pokebola - hover*/
+
+        @keyframes rodar {
+            0% {
+            transform: translateX(0) rotate(0);
+        }
+        20% {
+            transform: translateX(-5px) rotate(-10deg);
+        }
+        30% {
+            transform: translateX(5px) rotate(10deg);
+        }
+        50% {   
+            transform: translateX(-5px) rotate(-10deg);
+        }
+        60% {
+            transform: translateX(5px) rotate(10deg);
+        }
+        100% {
+            transform: translateX(0) rotate(0);
+        }
+    }
+
+        button:hover > .base{
+            animation: rodar  ease-in-out 1s 3;
+        }
+        #btn1:hover > .base > .topo{
+            background-color: orange;
+            transition: 0.3s;
+        }
+        #btn2:hover > .base > .topo{
+            background-color: rgb(0, 255, 0);
+            transition: 0.3s;
+        }
+        #btn3:hover > .base > .topo{
+            background-color: rgb(0, 191, 255);
+            transition: 0.3s;
+        }
+        #btn4:hover > .base > .topo{
+            background-color: purple;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+<div class="pokedex">
+    <div class="pokedex-visor">
+        <img src="" alt="pokemom" id="pokemom">
+    </div>
+    <img class="pokedex-fundo"  src="Praticas/Pokedex/imagens/pokedexm.png" alt="pokedex-fundo">
+    <div class="container-btn">
+        <button class="btn-pokemom" id="btn1" onclick="document.getElementById('pokemom').src = 'Praticas/Pokedex/imagens/charmander.png' ">
+            <div class="base">
+                <div class="topo"></div>
+                <div class="meio">
+                    <div class="bola">
+                        <div class="bola menor"></div>
+                    </div>
+                </div>
+        </button>
+        <button class="btn-pokemom" id="btn2" onclick="document.getElementById('pokemom').src = 'Praticas/Pokedex/imagens/bubalsaur.png' ">
+            <div class="base">
+                <div class="topo"></div>
+                <div class="meio">
+                    <div class="bola">
+                        <div class="bola menor"></div>
+                    </div>
+                </div>
+        </button>
+        <button class="btn-pokemom" id="btn3" onclick="document.getElementById('pokemom').src = 'Praticas/Pokedex/imagens/squirtle.png' ">
+            <div class="base">
+                <div class="topo"></div>
+                <div class="meio">
+                    <div class="bola">
+                        <div class="bola menor"></div>
+                    </div>
+                </div>
+        </button>
+        <button class="btn-pokemom" id="btn4" onclick="document.getElementById('pokemom').src = 'Praticas/Pokedex/imagens/mewtwo.png' ">
+            <div class="base">
+                <div class="topo"></div>
+                <div class="meio">
+                    <div class="bola">
+                        <div class="bola menor"></div>
+                    </div>
+                </div>
+        </button>
+    </div>
+</div>
+</body>
+</html>
