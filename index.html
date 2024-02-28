@@ -41,15 +41,21 @@
             position: relative;
             top: -120px;
             left: 50px;
-
         }
 
-        /*Desenho do botão - pokebola*/
+        /*Desenho do botão - pokebola|candy*/
         button{
             background-color: transparent;
             border: none;
             height: 100%;
         }
+
+        button > img{
+            width: 100%;
+            height: 100%;
+            transform: translate(-30%);
+        }
+
         .base{
             background-color: rgb(255, 255, 255);
             height: 30px;
@@ -128,13 +134,26 @@
             background-color: purple;
             transition: 0.3s;
         }
+
+        /*Configuração das evoluções*/
+        .container-evolucao{
+            width: 200px;
+            height: 100px;
+            position: relative;
+            left: 50%;
+            transform: translate(-50%,-50%);         
+        }
+        .container-evolucao > img{
+            height: 100%;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
 
 <div class="pokedex">
     <div class="pokedex-visor">
-        <img src="" alt="pokemom" id="pokemom">
+        <img src="" alt="" id="pokemom">
     </div>
     <img class="pokedex-fundo"  src="Praticas/Pokedex/imagens/pokedexm.png" alt="pokedex-fundo">
     <div class="container-btn">
@@ -174,6 +193,20 @@
                     </div>
                 </div>
         </button>
+    </div>
+    <div class="container-btn">
+            <button class="evolucao-btn" onclick="document.getElementById('evolucao').src = 'Praticas/Pokedex/imagens/charmanderEvo.png'">
+                <img src="Praticas/Pokedex/imagens/rarecandy.png" alt="evolucao-btn">
+            </button>
+            <button class="evolucao-btn" onclick="document.getElementById('evolucao').src = 'Praticas/Pokedex/imagens/bulbasaurEvo.png'">
+                <img src="Praticas/Pokedex/imagens/rarecandy.png" alt="evolucao-btn">
+            </button>
+            <button class="evolucao-btn" onclick="document.getElementById('evolucao').src = 'Praticas/Pokedex/imagens/squirtleEvo.png'">
+                <img src="Praticas/Pokedex/imagens/rarecandy.png" alt="evolucao-btn">
+            </button>
+    </div>
+    <div class="container-evolucao">
+        <img src="" alt="" id="evolucao">
     </div>
 </div>
 </body>
