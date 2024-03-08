@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de Saída</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+    
+        button{
+            border-radius: 20px;
+            background-color: black;
+            color: white;
+        }
+        button:hover{
+            border-radius: 20px;
+            background-color: transparent;
+            color: black;
+            transition: 0.3S;
+            box-shadow: 2px 2px 8px black;
+        }
+    
+    </style>
+</head>
+<body>
+    <h1>Tipos de Sáidas com Javascript</h1>
+
+    <h2>Escrevendo em um elemento</h2>
+    <button type="button" onclick="document.getElementById('conteudo').innerHTML = 'Olá, querido aluno'">Clique Para ver a saída</button>
+    <p id="conteudo"> A saída será exibida aqui</p>
+
+    <br/>
+    <hr>
+
+    <h2>Escrevendo na página</h2>
+    <button type="button" onclick="document.write('conteudo').innerHTML = 'Olá, querido aluno'">Clique Para ver a saída na página</button>
+
+    <br/>
+    <hr>
+
+    <h2>Caixa de mensagem</h2>
+    <button type="button" onclick="window.alert('Olá, querido aluno')">Clique Para ver a caixa de mensagem</button>
+
+    <br/>
+    <hr>
+
+    <h2>No console</h2>
+    <p>Antes de clicar no botão:</p>
+    <p>■ Aperte F12</p>
+    <p>■ Selecione o "console"</p>
+    <button type="button" onclick="console.log('Teste de Console')">Clique Para ver a mensagem no console</button>
+
+    <br/>
+    <hr>
+
+    <h2>Imprimir a caixa</h2>
+    <button type="button" onclick="window.print()">Clique Para imprimir a página</button>
+
+    <br/>
+    <hr>
+
+    <h2>Caixa de mensagem com preenchimento</h2>
+    <p>
+        Vai exibir uma caixa de mensagem para você preencher
+    </p>
+    <button type="button" onclick="prompt('Qual seu nome?')">Clique Para ver a caixa de mensagem com preenchimento</button>
+
+</body>
+</html> 
