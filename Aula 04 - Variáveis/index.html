@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1 </title>
+</head>
+<body>
+    <button onclick="teste()">Clique para iniciar</button>
+    <p id="text">O resultado aparecerá aqui</p>
+
+    <script>
+        function teste(){
+            const nome = prompt('Digite seu nome: ');
+            const anoAtual = 2024;//prompt('Digite o ano atual:');
+            const nasc = prompt('Digite seu ano de nascimento:');
+
+            const idade =   anoAtual - nasc;
+
+           const texto =  document.getElementById('text').innerHTML;
+           text.innerHTML = ('Olá seu nome é ' + nome + ' Você tem ' + idade);
+        }
+        
+    </script>
+</body>
+</html>

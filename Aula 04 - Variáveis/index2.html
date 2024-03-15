@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+<body>
+    <form>
+        <label for="txtNome">Nome: </label>
+        <br/>
+        <input type="text" id="nome" name="txtNome">
+        <br/>
+        <label for="txtIdade">Idade: </label>
+        <br/>
+        <input type="number" id="idade"  name="txtIdade">
+        <br/>
+        <button onclick="window.alert('Olá, seu nome é: ' + nome + ' Você tem: ' + idade);">Clique para ver o resultado</button>
+    </form>
+
+    <p id="Texto">|-O resultado aparecerá aqui-|</p>
+    <script>
+        const nome = txtnome;
+        const nasc = document.getElementById('idade');
+        const idade = 2024 - nasc;
+        window.alert('Olá seu nome é ' + nome + ' Você tem ' + idade);
+    </script>
+
+
+</body>
+</html>
