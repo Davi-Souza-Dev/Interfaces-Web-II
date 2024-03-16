@@ -12,21 +12,23 @@
         <br/>
         <input type="text" id="nome" name="txtNome">
         <br/>
-        <label for="txtIdade">Idade: </label>
+        <label for="txtnasc">Data de Nascimento: </label>
         <br/>
-        <input type="number" id="idade"  name="txtIdade">
+        <input type="number" id="nasc"  name="txtnasc">
         <br/>
-        <button onclick="window.alert('Olá, seu nome é: ' + nome + ' Você tem: ' + idade);">Clique para ver o resultado</button>
     </form>
+    <button onclick="
+    const nome = document.getElementById('nome').value;
+    const nasc = document.getElementById('nasc').value;
+    const idade = 2024 - nasc;
 
-    <p id="Texto">|-O resultado aparecerá aqui-|</p>
-    <script>
-        const nome = txtnome;
-        const nasc = document.getElementById('idade');
-        const idade = 2024 - nasc;
-        window.alert('Olá seu nome é ' + nome + ' Você tem ' + idade);
-    </script>
+    document.getElementById('text').innerHTML = 'Seu nome é ' + nome + ' Você tem ' + idade + ' anos';
+   
+    console.log(idade);
+    console.log(nome);
+    ">Clique para ver o resultado</button>
 
+    <p id="text">|-O resultado aparecerá aqui-|</p>
 
 </body>
 </html>

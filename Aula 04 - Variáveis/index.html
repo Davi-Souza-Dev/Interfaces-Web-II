@@ -7,21 +7,20 @@
     <title>Exercicio 1 </title>
 </head>
 <body>
-    <button onclick="teste()">Clique para iniciar</button>
-    <p id="text">O resultado aparecerá aqui</p>
+    <button onclick="
+        const nome = prompt('Digite seu nome: ');
+        const anoAtual = 2024;//prompt('Digite o ano atual:');
+        const nasc = prompt('Digite seu ano de nascimento:');
 
-    <script>
-        function teste(){
-            const nome = prompt('Digite seu nome: ');
-            const anoAtual = 2024;//prompt('Digite o ano atual:');
-            const nasc = prompt('Digite seu ano de nascimento:');
+        const idade =   anoAtual - nasc;
 
-            const idade =   anoAtual - nasc;
-
-           const texto =  document.getElementById('text').innerHTML;
-           text.innerHTML = ('Olá seu nome é ' + nome + ' Você tem ' + idade);
-        }
+        const texto =  document.getElementById('text').innerHTML;
+        text.innerHTML = ('Olá seu nome é ' + nome + ' Você tem ' + idade);
         
-    </script>
+        
+        
+    
+    ">Clique para iniciar</button>
+    <p id="text">O resultado aparecerá aqui</p>
 </body>
 </html>
