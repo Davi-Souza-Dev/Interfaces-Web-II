@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de adivinhação</title>
+    <style>
+        section{
+            width: 500px;
+            height: 300px;
+            border: 2px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        article{
+            border: 2px solid black;
+            width: 90%;
+            height: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        article > p{
+            font-size: 20px;
+            text-align: center;
+        }
+
+        article > form{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        article > form > input{
+            border-radius: 5px;
+            height: 35px;
+            width: 90%;
+        }
+
+        article > div.btns > button{
+            width: 100px;
+            height: 35px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <article>
+            <img src="" alt="imagem" id="img">
+            <p id="txt">Teste de numero</p>
+            <form action="">
+                <input type="number" id="txtValor">
+            </form>
+            <div class="btns">
+                <button onclick="adivinhar()" id="btn1">Consegui</button>
+                <button onclick="desistir()" id="btn2">Desisto</button>
+            </div>
+            <p id="txtRestart">APERTE F5 PARA JOGAR NOVAMENTE</p>
+        </article>
+    </section>
+
+    <script>
+        const msg = document.getElementById('txtRestart');
+        msg.style.display = "none";
+
+        const num = Math.floor(Math.random() * 20);
+        console.log(num);
+        function adivinhar(){
+            let valorAdv = document.getElementById('txtValor').value;
+            if(valorAdv == num){
+                alert('Você acertou');
+                const btn = document.getElementById('txtValor');
+                btn.disabled  = "false";
+                msg.style.display = "block";
+            }else{
+                alert('Você errou, TENTE NOVAMENTE');
+                if(valorAdv < num){
+                    alert("Dica: Seu númeor é MENOR do que o que eu pensei"); 
+                }else{
+                    alert("Dica: Seu númeor é MAIOR do que o que eu pensei"); 
+                }
+
+            }
+        }
+
+        function desistir(){
+           const btn = document.getElementById('txtValor');
+           const btn2 = document.getElementById('btn1');
+           const btn3 = document.getElementById('btn2');
+           btn.disabled  = "false";
+           btn2.disabled  = "false";
+           btn3.disabled  = "false";
+           msg.style.display = "block";
+           document.getElementById('txt').innerHTML = "Você desistiu, COVARDE!"
+        }
+    </script>
+</body>
+</html>
