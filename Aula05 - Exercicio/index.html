@@ -146,6 +146,7 @@
                 <button onclick="adivinhar()" id="btn1">Consegui</button>
                 <button onclick="desistir()" id="btn2">Desisto</button>
             </div>         
+            <audio src="imagens/gato-riendo_6bOc2ur.mp3" autoplay></audio>
             <p id="txtTent">Tentatvias: </p>
             <p id="txtUltValor">Ultimo número: </p>  
             <p id="txtRestart">APERTE F5 PARA JOGAR NOVAMENTE</p>  
@@ -199,6 +200,10 @@
            msg.style.display = "block";
            document.getElementById('img').src = 'imagens/fimImg.jpg';
            document.getElementById('txt').innerHTML = "VOCÊ DESISTIU!! HAHAHAH"
+           var audio = new Audio('imagens/gato-riendo_6bOc2ur.mp3');
+            audio.addEventListener('canplaythrough', function() {
+            audio.play();
+            });
         }
     </script>
 </body>
