@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de consórcio</title>
+</head>
+<body>
+    <label for="txtSal">Sálario (R$):</label>
+    <input type="number" name="txtSal" id="txtSal">
+    <label for="txtIdade">Idade:</label>
+    <input type="number" name="txtIdade" id="txtIdade">
+    <button id="btn">Verificar</button>
+    <br/>
+    <h1 id="msg"></h1>
+    <script>
+        const btn = document.getElementById('btn');
+        
+        const verificar = () => {
+            const salario = document.getElementById('txtSal').value;
+            const idade = document.getElementById('txtIdade').value;
+
+            if((idade >= 18) && (salario > 2000)){
+                document.getElementById('msg').innerHTML = `VOCÊ PODE COMPRAR O CARRO`;
+            }else{
+                document.getElementById('msg').innerHTML = `VOCÊ NÃO PODE COMPRAR O CARRO`;
+            }
+
+        }
+
+        btn.addEventListener('click',verificar)
+    </script>
+</body>
+</html>

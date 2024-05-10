@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tëste de velocidade</title>
+</head>
+
+<body>
+    <h1>Digite sua Velocidade:</h1>
+    <label for="txtVelo">Velocidade:</label>
+    <input type="number" id="txtVelo" name="txtVelo">Km/h
+    <button id="btn">Verificar</button>
+    <br />
+    <h1 id="msg"></h1>
+    <script>
+        const btn = document.getElementById('btn');
+
+        const verificar = () => {
+            const velo = document.getElementById('txtVelo').value;
+
+            if ((velo > 80) || (velo < 40)) {
+                document.getElementById('msg').innerHTML = `MULTADO`;
+            } else {
+                document.getElementById('msg').innerHTML = `LIVRE`;
+            }
+        }
+
+
+        btn.addEventListener('click', verificar)
+    </script>
+</body>
+
+</html>

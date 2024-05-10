@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votar ou não Votar</title>
+</head>
+<body>
+    <label for="txtName">Nome:</label>
+    <input type="text" id="txtName" name="txtName">
+    <label for="txtIdade">Idade:</label>
+    <input type="number" name="txtIdade" id="txtIdade">
+    <button id="btn">Verificar</button>
+    <br/>
+    <h1 id="msg"></h1>
+    <script>
+        const btn = document.getElementById('btn');
+        
+        const verificar = () => {
+            const name = document.getElementById('txtName').value;
+            const idade = document.getElementById('txtIdade').value;
+
+            if((idade >= 18) && (idade < 65)){
+                document.getElementById('msg').innerHTML = `você é obrigado a votar`;
+            }else{
+                document.getElementById('msg').innerHTML = `você NÃO é obrigado a votar`;
+            }
+
+        }
+
+
+        btn.addEventListener('click',verificar)
+    </script>
+</body>
+</html>
