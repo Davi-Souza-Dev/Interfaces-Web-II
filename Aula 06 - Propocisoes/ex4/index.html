@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="text">Selecione uma opção: </h1>
+    <input type="radio" id="rd1" name="rd" value="1">
+    <label for="rd">Idoso(a)</label>
+    <input type="radio" id="rd2" name="rd" value="2">
+    <label for="rd">Gestante</label>
+    <input type="radio" id="rd3" name="rd" value="3">
+    <label for="rd">Deficiente</label>
+    <input type="radio" id="rd0" name="rd" value="0">
+    <label for="rd">Nenhuma das alternativas</label>
+    <button id="btnVerificar" onclick="verificar()">Verificar</button>
+
+    <script>
+        const rd1 = document.getElementById('rd1');
+        const rd2 = document.getElementById('rd2');
+        const rd3 = document.getElementById('rd3');
+        const rd0 = document.getElementById('rd0');
+        const text = document.getElementById('text');
+        function verificar(){
+            if(rd1.checked || rd2.checked || rd3.checked){
+                text.innerHTML ="Você tem direito a fila prioritária";
+            }else if(rd0.checked){
+                text.innerHTML ="Você <u>NÃO</u> tem direito a fila prioritária";
+            }
+        }
+    </script>
+</body>
+</html>
