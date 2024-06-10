@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Exercicio 2</title>
+    <style>
+        p{
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn" onclick="cont()">Contar</button>
+    <p id="msg"></p>
+    <script>
+        const btn = document.getElementById("btn");
+        const msg = document.getElementById("msg");
+        let result = 0;
+        function cont() {
+            for (let i = 1; i <= 100; i++) {
+                result = i % 10;
+                if (result == 0){
+                    msg.innerHTML+= ` ${i} múltiplo de 10 <br/> `;
+                }else{
+                    msg.innerHTML+= ` ${i}  <br/> `;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

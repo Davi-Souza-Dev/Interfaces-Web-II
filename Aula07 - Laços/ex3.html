@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Exercicio 3</title>
+    <style>
+        p{
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn" onclick="cont()">Contar</button>
+    <p id="msg"></p>
+    <script>
+        const btn = document.getElementById("btn");
+        const msg = document.getElementById("msg");
+        let result = 0;
+        function cont() {
+            for (let i = 0; i <= 10; i++) {
+                let num = Math.floor(Math.random() * 1000) + 1;
+                result = num % 2;
+                if (result == 0){
+                    msg.innerHTML+= ` ${num} Par<br/> `;
+                }else{
+                    msg.innerHTML+= ` ${num} Ímpar <br/> `;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

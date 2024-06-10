@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Exercicio 4</title>
+    <style>
+        p{
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <input type="number" id="numContar">
+    <button id="btn" onclick="cont()">Contar</button>
+    <p id="msg"></p>
+    <script>
+        const btn = document.getElementById("btn");
+        const msg = document.getElementById("msg");
+        const mum = document.getElementById("numContar");
+        let par = 0;
+        let impar = 0;
+        function cont() {
+            for (let i = 1; i <= numContar.value; i++) {
+                result = i % 2;
+                if (result == 0){
+                    par++;
+                }else{
+                    impar++;
+                }
+            }
+            msg.innerHTML = `Pares: ${par} <br/> Ímpares: ${impar} <br/>`;
+        }
+    </script>
+</body>
+
+</html>
