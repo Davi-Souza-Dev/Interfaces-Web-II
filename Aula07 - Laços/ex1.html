@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Exercicio 1</title>
+    <style>
+        p{
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btnFive" onclick="mult5()">Multiplos de 5</button>
+    <p id="msgFive"></p>
+    <button id="btnNine" onclick="mult9()">Multiplos de 9</button>
+    <p id="msgNine"></p>
+
+    <script>
+        const btnFive = document.getElementById("btnFive");
+        const msgFive = document.getElementById("msgFive");
+        const btnNine = document.getElementById("btnNine");
+        const msgNine = document.getElementById("msgNine");
+        let n = 1000;
+        let result =0;
+
+        function mult5() {
+            for (let i = 0; i <= 10000; i++) {
+                let result = n % 5;
+                if (result == 0) {
+                    // alert(`${n} é multiplo de 5`);
+                    msgFive.innerHTML+= ` ${n} `
+                }
+                n++;
+            }
+        }
+        
+        function mult9() {
+            for (let i = 0; i <= 10000; i++) {
+                let result = n % 9;
+                if (result == 0) {
+                    // alert(`${n} é multiplo de 5`);
+                    msgNine.innerHTML+= ` ${n} `
+                }
+                n++;
+            }
+        }
+    </script>
+</body>
+
+</html>
