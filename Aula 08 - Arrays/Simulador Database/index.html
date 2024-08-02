@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Banco de Dados</title>
+    <style>
+        .campoForm {
+            padding: 10px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="campoForm">
+        <input type="text" id="txtNome" name="txtNome" placeholder="Nome...">
+        <input type="text" id="txtCurso" name="txtCurso" placeholder="Curso...">
+        <input type="number" id="numIdade" name="numIdade" placeholder="Idade...">
+    </div>
+    <div class="campoForm">
+        <p id="txtCadastro"></p>
+    </div>
+    <div class="campoForm">
+        <button id="btnCadastrar" class="btnCadastrar">Cadastro Manual</button>
+        <button id="btnCadastrarAuto" class="btnCadastrarAuto">Cadastro Automatico</button>
+        <button id="btnImprimir" class="btnImprimir">Imprimir</button>
+    </div>
+    <div class="campoForm">
+        <input type="text" id="txtPesquisa" name="txtPesquisa" placeholder="Nome do Aluno:">
+        <button id="btnPesquisar" class="btnPesquisar">Pesquisar</button>
+        <button id="btnExluir" class="btnExluir">Excluir</button>
+    </div>
+
+
+    <script>
+        let aluno = [];
+        let curso = [];
+        let idade = [];
+        let pesquisa;
+        const txtNome = document.getElementById("txtNome");
+        const txtCurso = document.getElementById("txtCurso");
+        const numIdade = document.getElementById("numIdade");
+        const btnCadastrar = document.getElementById("btnCadastrar");
+        const btnCadastrarAuto = document.getElementById("btnCadastrarAuto");
+        const btnImprimir = document.getElementById("btnImprimir");
+        const txtCadastro = document.getElementById("txtCadastro");
+        const btnPesquisar = document.getElementById("btnPesquisar");
+        const txtPesquisa = document.getElementById("txtPesquisa");
+        const btnExluir = document.getElementById("btnExluir");
+
+        btnCadastrar.addEventListener("click", () => {
+            aluno.push(txtNome.value);
+            curso.push(txtCurso.value);
+            idade.push(numIdade.value);
+            console.log(aluno)
+        });
+
+        btnImprimir.addEventListener("click", () => {
+            txtCadastro.innerHTML = " ";
+            for (let i = 0; i < aluno.length; i++) {
+                txtCadastro.innerHTML += aluno[i] + " " + curso[i] + " " + idade[i] + "<br>";
+            }
+        });
+
+        btnCadastrarAuto.addEventListener("click", () => {
+            //DADOS AUTOMATICOS
+            aluno.push("Ana");
+            aluno.push("Felipe Santos");
+            aluno.push("Socrates");
+            aluno.push("Aristoteles");
+            aluno.push("Marco Aurelio");
+
+            curso.push("Info");
+            curso.push("Market");
+            curso.push("Adm");
+            curso.push("Adm");
+            curso.push("Log");
+
+            idade.push(12);
+            idade.push(15);
+            idade.push(17);
+            idade.push(20);
+            idade.push(19);
+
+            btnImprimir.click();
+        });
+
+        btnPesquisar.addEventListener("click", () => {
+            pesquisa = txtPesquisa.value;
+            let index = aluno.indexOf(pesquisa);
+            if (index >= 0) {
+                alert('Aluno no banco de Dados!');
+            } else {
+                alert('Aluno Inexistente!');
+            }
+        });
+
+        btnExluir.addEventListener("click", () => {
+            let index = aluno.indexOf(pesquisa);
+            console.log(index)
+            let deletar = confirm("Deseja Deletar o Aluno(a)?");
+            if (deletar) {
+                if(index >= 0){
+                    aluno.splice(index, 1);
+                    curso.splice(index, 1);
+                    idade.splice(index, 1);
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>
