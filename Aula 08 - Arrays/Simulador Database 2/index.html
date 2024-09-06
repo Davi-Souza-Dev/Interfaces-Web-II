@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Banco de Dados</title>
+    <style>
+        .campoForm {
+            padding: 10px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="campoForm">
+        <input type="text" id="txtNome" name="txtNome" placeholder="Nome...">
+        <input type="text" id="txtCurso" name="txtCurso" placeholder="Curso...">
+        <input type="number" id="numIdade" name="numIdade" placeholder="Idade...">
+    </div>
+    <div class="campoTxt" id="campoTxt">
+        
+    </div>
+    <div class="campoForm">
+        <button id="btnCadastrar" class="btnCadastrar">Cadastro Manual</button>
+        <button id="btnCadastrarAuto" class="btnCadastrarAuto">Cadastro Automatico</button>
+        <button id="btnImprimir" class="btnImprimir">Imprimir</button>
+    </div>
+    <div class="campoForm">
+        <input type="text" id="txtPesquisa" name="txtPesquisa" placeholder="Nome do Aluno:">
+        <button id="btnPesquisar" class="btnPesquisar">Pesquisar</button>
+        <button id="btnExluir" class="btnExluir">Excluir</button>
+    </div>
+
+
+    <script>
+        // PEGANDO OS ELEMENTOS
+        const btnCadastrar = document.getElementById("btnCadastrar");
+        const btnImprimir = document.getElementById("btnImprimir");
+        const campoTxt = document.getElementById("campoTxt");
+        let alunos = [];
+
+
+        // CADSTRO DE ALUNOS
+        btnCadastrar.addEventListener("click",()=>{
+            let nome = document.getElementById("txtNome").value;
+            let curso = document.getElementById("txtCurso").value;
+            let idade = document.getElementById("numIdade").value;
+
+            alunos.push([nome, curso, idade]);
+        });
+
+        imprimir=()=>{
+            for(let linha =0;linha<alunos.length;linha++){
+                campoTxt.innerHTML += "<p>"+ alunos[linha]+"</p>"
+                // for(let coluna = 0;coluna<alunos.length;coluna++){
+                //     campoTxt.innerHTML += "<p>"+ alunos[coluna]+"</p>"
+                // }
+            }
+        }
+        
+        btnImprimir.addEventListener("click",()=>{
+            imprimir();
+        });
+    </script>
+</body>
+</html>
