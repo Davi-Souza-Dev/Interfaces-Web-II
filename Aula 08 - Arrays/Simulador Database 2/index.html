@@ -1,68 +1,155 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simulador de Banco de Dados</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <style>
-        .campoForm {
-            padding: 10px 0px;
-        }
+      .campoForm {
+        padding: 10px 0px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <div class="campoForm">
-        <input type="text" id="txtNome" name="txtNome" placeholder="Nome...">
-        <input type="text" id="txtCurso" name="txtCurso" placeholder="Curso...">
-        <input type="number" id="numIdade" name="numIdade" placeholder="Idade...">
+  <body class="row"> 
+    <div class="col s12">
+      <div class="campoForm row">
+        <input  class="col s4" type="text" id="txtNome" name="txtNome" placeholder="Nome..." />
+        <input  class="col s4" type="text" id="txtCurso" name="txtCurso" placeholder="Curso..." />
+        <input
+           class="col s4" type="number"
+          id="numIdade"
+          name="numIdade"
+          placeholder="Idade..."
+        />
+      </div>
+      <div class="campoTxt" id="campoTxt"></div>
+      <div class="campoForm">
+        <button id="btnCadastrar" class="btnCadastrar waves-effect waves-light btn green"><i class="material-icons left">add</i>Cadastro Manual</button>
+        <button id="btnCadastrarAuto" class="btnCadastrarAuto waves-effect waves-light btn green">
+          <i class="material-icons left">archive</i> Cadastro Automatico
+        </button>
+        <button id="btnImprimir" class="btnImprimir waves-effect waves-light btn green"><i class="material-icons left">format_list_numbered</i>Imprimir</button>
+      </div>
+      <div class="campoForm">
+        <input
+          type="text"
+          id="txtPesquisa"
+          name="txtPesquisa"
+          placeholder="Nome do Aluno:"
+        />
+        <button id="btnPesquisar" class="btnPesquisar waves-effect waves-light btn blue"><i class="material-icons left">search</i>Pesquisar</button>
+        <button id="btnExluir" class="btnExluir waves-effect waves-light btn red"><i class="material-icons left">delete_forever</i>Excluir</button>
+        <div class="campoPesquisa" id="campoPesquisa"></div>
+      </div>
     </div>
-    <div class="campoTxt" id="campoTxt">
-        
-    </div>
-    <div class="campoForm">
-        <button id="btnCadastrar" class="btnCadastrar">Cadastro Manual</button>
-        <button id="btnCadastrarAuto" class="btnCadastrarAuto">Cadastro Automatico</button>
-        <button id="btnImprimir" class="btnImprimir">Imprimir</button>
-    </div>
-    <div class="campoForm">
-        <input type="text" id="txtPesquisa" name="txtPesquisa" placeholder="Nome do Aluno:">
-        <button id="btnPesquisar" class="btnPesquisar">Pesquisar</button>
-        <button id="btnExluir" class="btnExluir">Excluir</button>
-    </div>
-
 
     <script>
-        // PEGANDO OS ELEMENTOS
-        const btnCadastrar = document.getElementById("btnCadastrar");
-        const btnImprimir = document.getElementById("btnImprimir");
-        const campoTxt = document.getElementById("campoTxt");
-        let alunos = [];
+      // PEGANDO OS ELEMENTOS
+      const btnCadastrar = document.getElementById("btnCadastrar");
+      const btnImprimir = document.getElementById("btnImprimir");
+      const campoTxt = document.getElementById("campoTxt");
+      const campoPesquisa = document.getElementById("campoPesquisa");
+      const btnCadastrarAuto = document.getElementById("btnCadastrarAuto");
+      const txtPesquisa = document.getElementById("txtPesquisa");
+      const btnPesquisar = document.getElementById("btnPesquisar");
+      const btnExluir = document.getElementById("btnExluir");
+      let alunos = [];
+      let indexPesquisa = -1;
+      let alunoDel = "";
 
+      // CADSTRO DE ALUNOS
+      btnCadastrar.addEventListener("click", () => {
+        let nome = document.getElementById("txtNome").value;
+        let curso = document.getElementById("txtCurso").value;
+        let idade = document.getElementById("numIdade").value;
 
-        // CADSTRO DE ALUNOS
-        btnCadastrar.addEventListener("click",()=>{
-            let nome = document.getElementById("txtNome").value;
-            let curso = document.getElementById("txtCurso").value;
-            let idade = document.getElementById("numIdade").value;
-
-            alunos.push([nome, curso, idade]);
-        });
-
-        imprimir=()=>{
-            for(let linha =0;linha<alunos.length;linha++){
-                campoTxt.innerHTML += "<p>"+ alunos[linha]+"</p>"
-                // for(let coluna = 0;coluna<alunos.length;coluna++){
-                //     campoTxt.innerHTML += "<p>"+ alunos[coluna]+"</p>"
-                // }
-            }
+        if (nome != "" && curso != "" && idade != "") {
+          alunos.push([nome, curso, idade]);
         }
-        
-        btnImprimir.addEventListener("click",()=>{
-            imprimir();
+      });
+
+      imprimir = () => {
+        campoTxt.innerHTML = "";
+        alunos.map((aluno, index) => {
+          index++;
+          let txt = `<p>[${index}]:${aluno[0]} - ${aluno[1]} - ${aluno[2]} </p>`;
+          campoTxt.innerHTML += txt;
         });
+      };
+
+      btnCadastrarAuto.addEventListener("click", () => {
+        alunos.push(["Davi", "Info", 17]);
+        alunos.push(["Ana Clara", "Adm", 15]);
+        alunos.push(["Pedro Souza", "Info", 19]);
+        alunos.push(["David Castro", "Adm", 14]);
+        alunos.push(["Julio Felipe Amorim Dias", "Log", 16]);
+        imprimir();
+      });
+
+      btnImprimir.addEventListener("click", () => {
+        imprimir();
+      });
+
+      btnPesquisar.addEventListener("click", () => {
+        let pesquisa = txtPesquisa.value;
+        alunos.map((aluno, index) => {
+          if (aluno[0] == pesquisa) {
+            alunoDel = aluno[0];
+            indexPesquisa = index;
+          }
+        });
+        if (indexPesquisa < 0) {
+          Swal.fire({
+            title: "Aluno Não Encontrado!",
+            // text: "Pesquise o nome de um aluno para podermos deletar",
+            icon: "error",
+          });
+        } else {
+            Swal.fire({
+            title: "Aluno Encontrado!",
+            // text: "Pesquise o nome de um aluno para podermos deletar",
+            icon: "success",
+          });
+        }
+        // console.log(indexPesquisa);
+      });
+
+      btnExluir.addEventListener("click", () => {
+        if (indexPesquisa < 0) {
+          Swal.fire({
+            title: "Sem Aluno Pesquisado",
+            text: "Pesquise o nome de um aluno para podermos deletar!",
+            icon: "question",
+          });
+        } else {
+          Swal.fire({
+            title: `Deseja deletar o aluno(a) ${alunoDel}`,
+            text: "Você irá excluir esse dado do registro?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Sim, deletar!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              alunos.splice(indexPesquisa,1);
+              Swal.fire({
+                title: "Deleted!",
+                text: "Aluno deletado",
+                icon: "success",
+              });
+            }
+            imprimir();
+          });
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
