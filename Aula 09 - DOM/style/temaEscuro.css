@@ -1,0 +1,12 @@
+:root{
+--input-focus: #2d8cf0;
+--font-color: #b0b0b0;
+--font-color-sub: #666;
+--bg-color: #fff;
+--main-color: #666;
+--bg-form:#323232;
+}
+
+body{
+    background: #e7e7e7;
+}
